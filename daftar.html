@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpace - Daftar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome untuk Icon Mata (Eye-slash) pada input password -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-card">
+            <!-- Judul Halaman -->
+            <h1 class="register-title">Daftar</h1>
+            
+            <form class="register-form">
+                <!-- Input Email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="example@gmail.com">
+                </div>
+                
+                <!-- Input Password dengan Icon -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="example123">
+                        <i class="fa-solid fa-eye-slash toggle-password"></i>
+                    </div>
+                </div>
+                
+                <!-- Input Konfirmasi Password -->
+                <div class="form-group">
+                    <label for="confirm-password">Password (Ulangi)</label>
+                    <input type="password" id="confirm-password" placeholder="example123">
+                </div>
+                
+                <!-- Teks Link Login -->
+                <div class="login-link-container">
+                    <p class="login-text">Sudah punya akun? <a href="masuk.html" class="login-link">Masuk</a></p>
+                </div>
+                
+                <!-- Tombol Submit -->
+                <button type="button" onclick="window.location.href='pilih-role.html'" class="btn-outline btn-register">Daftar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Interaktif JS -->
+    <script>
+        // Mengambil elemen icon dan input password
+        const togglePassword = document.querySelector('.toggle-password');
+        const passwordInput = document.querySelector('#password');
+
+        // Menambahkan fungsi ketika ikon mata diklik
+        togglePassword.addEventListener('click', function () {
+            // Cek apakah tipenya password (sedang tertutup)
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Mengubah bentuk ikonnya dari coret (slash) menjadi mata terbuka dan sebaliknya
+            this.classList.toggle('fa-eye-slash');
+            this.classList.toggle('fa-eye');
+        });
+    </script>
+</body>
+</html>

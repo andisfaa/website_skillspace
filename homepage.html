@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpace - Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Memanggil gabungan font Poppins, Inter (untuk logo), dan Playfair Display (untuk teks serif elegan) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Splash Screen Overlay -->
+    <div id="splash" class="splash-container">
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="SkillSpace Logo" class="logo-image">
+        </div>
+    </div>
+
+    <!-- Script JavaScript untuk menghilangkan splash screen -->
+    <script>
+        // Mencegah scroll saat splash screen aktif
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(function () {
+            var splash = document.getElementById('splash');
+            splash.classList.add('hidden');
+
+            // Kembalikan fungsi scroll setelah splash menghilang
+            setTimeout(function () {
+                document.body.style.overflow = 'auto';
+            }, 800); // 800ms sama dengan durasi transisi opacity di CSS
+        }, 3000); // Tampil selama 3 detik
+    </script>
+
+    <div class="homepage-container">
+        <!-- Header & Navigasi -->
+        <header class="home-header">
+            <h1 class="landing-logo">
+                <span class="text-skill">Skill</span><span class="text-space">Space.</span>
+            </h1>
+            <nav class="home-nav">
+                <a href="tentang-kami.html" class="nav-link">Tentang Kami</a>
+                <a href="cara-kerja.html" class="nav-link">Cara Kerja</a>
+                <a href="landing.html" class="btn-nav">Sign Up/Login</a>
+            </nav>
+        </header>
+
+        <!-- Konten Utama (Hero Section) -->
+        <main class="home-main">
+            <!-- Sisi Kiri (Teks & Pencarian) -->
+            <div class="home-text-section">
+                <h2 class="home-title">Temukan Freelancer<br>di SkillSpace!</h2>
+                <div class="search-box">
+                    <input type="text" id="citySearch" placeholder="Ketik Nama Kota" class="search-input"
+                        onkeypress="handleSearchEnter(event)">
+                    <button class="btn-search" onclick="performSearch()">Cari</button>
+                </div>
+            </div>
+
+            <script>
+                // Fungsi untuk menangani penekanan tombol Enter pada keyboard
+                function handleSearchEnter(event) {
+                    if (event.key === 'Enter') {
+                        performSearch();
+                    }
+                }
+
+                // Fungsi utama pencarian
+                function performSearch() {
+                    // Ambil nilai dari input, hilangkan spasi lebih, dan ubah ke huruf kecil
+                    var city = document.getElementById('citySearch').value.trim().toLowerCase();
+
+                    // Logika pengalihan berdasarkan nama kota
+                    if (city === 'jakarta') {
+                        window.location.href = 'search-results-jakarta.html';
+                    } else if (city === 'bandung') {
+                        window.location.href = 'search-results-bandung.html';
+                    } else {
+                        // Jika kota tidak spesifik (kosong atau nama lain), arahkan ke hasil general
+                        window.location.href = 'search-results.html';
+                    }
+                }
+            </script>
+
+            <!-- Sisi Kanan (Ilustrasi) -->
+            <div class="home-illustration">
+                <!-- Pastikan file gambar figma diexport dengan nama "building.png" dan dimasukkan ke folder ini -->
+                <img src="building.png" alt="Ilustrasi Gedung" class="building-img">
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

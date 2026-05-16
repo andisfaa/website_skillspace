@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpace - Pilih Role</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Memanggil Font Poppins untuk teks umum -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Memanggil Font Inter untuk logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="role-container">
+        <!-- Header & Logo (Menggunakan class yang sama dengan landing) -->
+        <header class="landing-header">
+            <h1 class="landing-logo">
+                <span class="text-skill">Skill</span><span class="text-space">Space.</span>
+            </h1>
+        </header>
+
+        <!-- Konten Utama -->
+        <main class="role-main">
+            <h2 class="role-title">Pilih Role</h2>
+            
+            <div class="role-cards-wrapper">
+                <!-- Card Freelancer -->
+                <div class="role-card" onclick="window.location.href='dashboard-freelancer.html'">
+                    <!-- Pastikan file gambar freelancer.png disalin ke folder ini -->
+                    <img src="freelancer.png" alt="Freelancer" class="role-img">
+                    <h3 class="role-name">Freelancer</h3>
+                </div>
+                
+                <!-- Card Klien -->
+                <div class="role-card" onclick="window.location.href='homepage.html'">
+                    <!-- Pastikan file gambar klien.png disalin ke folder ini -->
+                    <img src="klien.png" alt="Klien" class="role-img">
+                    <h3 class="role-name">Klien</h3>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

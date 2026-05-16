@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpace - Welcome Freelancer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar-layout">
+        <!-- Sidebar (Bisa ditutup/buka) -->
+        <!-- Kita buat defaultnya tertutup (collapsed) agar halaman pembuka terasa lebih luas, atau biarkan terbuka -->
+        <aside class="sidebar collapsed">
+            <div class="sidebar-header">
+                <h2>Menu</h2>
+                <i class="fa-solid fa-bars" id="menu-icon-sidebar"></i>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="post-skill.html" class="sidebar-item">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <span>Post Skill</span>
+                </a>
+                <a href="dashboard-pesanan.html" class="sidebar-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="profil-freelancer.html" class="sidebar-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profil</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="homepage.html" class="sidebar-item home-item">
+                    <span>Home</span>
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sidebar-main-content">
+            <!-- Topbar dengan ikon hamburger rahasia jika sidebar tertutup penuh, tapi karena kita pakai layout flex, kita biarkan saja icon di sidebar -->
+            <div class="topbar" style="justify-content: space-between;">
+                <!-- Ikon hamburger kedua di luar sidebar agar tetap bisa diklik saat sidebar benar-benar dihilangkan (opsional, tapi kita pakai yang di sidebar saja sesuai desain) -->
+                <div>
+                    <!-- Tombol ini berfungsi membuka sidebar jika pengguna berada di mode layar kecil -->
+                    <i class="fa-solid fa-bars" id="menu-icon-topbar" style="font-size: 1.8rem; color: #1e1e1e; cursor: pointer; display: none;"></i>
+                </div>
+                <i class="fa-solid fa-user topbar-profile"></i>
+            </div>
+
+            <!-- Konten Dashboard (Ucapan Selamat Datang) -->
+            <div class="dash-main" style="padding-bottom: 0;">
+                <div class="welcome-text-container">
+                    <h2 class="welcome-heading">Selamat Datang, Freelancer!</h2>
+                    <h2 class="welcome-heading">Temukan Perjalanan Skillmu</h2>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script Interaktif JS -->
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        const menuIconSidebar = document.querySelector('#menu-icon-sidebar');
+        
+        // Fungsi untuk toggle sidebar tanpa pindah halaman
+        menuIconSidebar.addEventListener('click', function () {
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html>

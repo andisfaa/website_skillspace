@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpace - Post Skill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Menu</h2>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="post-skill.html" class="sidebar-item active">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <span>Post Skill</span>
+                </a>
+                <a href="dashboard-pesanan.html" class="sidebar-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="profil-freelancer.html" class="sidebar-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profil</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="homepage.html" class="sidebar-item home-item">
+                    <span>Home</span>
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sidebar-main-content">
+            <!-- Topbar (Profile Icon only based on design) -->
+            <div class="topbar">
+                <i class="fa-solid fa-user topbar-profile"></i>
+            </div>
+
+            <!-- Post Skill Form Area -->
+            <div class="post-skill-wrapper">
+                <form class="post-skill-form">
+                    <!-- Judul Jasa -->
+                    <div class="form-group">
+                        <label class="ps-label">Judul Jasa</label>
+                        <div class="ps-input-wrapper">
+                            <input type="text" class="ps-input" placeholder="Ketik judul jasa Anda">
+                        </div>
+                    </div>
+
+                    <!-- Kategori -->
+                    <div class="form-group">
+                        <select class="ps-category-select">
+                            <option value="" disabled selected>Pilih Kategori...</option>
+                            <option value="desain">Desain Grafis</option>
+                            <option value="voice">Voice Over</option>
+                            <option value="data">Data Entry</option>
+                            <option value="web">Web Development</option>
+                            <option value="lainnya">Lainnya...</option>
+                        </select>
+                    </div>
+
+                    <!-- Deskripsi -->
+                    <div class="form-group">
+                        <label class="ps-label">Deskripsi</label>
+                        <textarea class="ps-textarea" placeholder="(tambahkan deskripsi)"></textarea>
+                    </div>
+
+                    <!-- Harga -->
+                    <div class="form-group ps-price-group">
+                        <label class="ps-label">Harga</label>
+                        <input type="text" class="ps-price-input" placeholder="">
+                    </div>
+
+                    <!-- Drag/Drop Area -->
+                    <div class="ps-drag-drop">
+                        <i class="fa-solid fa-image"></i>
+                        <p>Drag/Drop File</p>
+                    </div>
+
+                    <!-- Preview Button -->
+                    <button type="button" class="ps-btn-preview" onclick="window.location.href='preview.html'">PREVIEW</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script Interaktif JS -->
+    <script>
+        // Mengambil elemen ikon hamburger dan sidebar
+        const menuIcon = document.querySelector('.fa-bars');
+        const sidebar = document.querySelector('.sidebar');
+
+        // Menambahkan fungsi ketika ikon menu diklik
+        menuIcon.addEventListener('click', function () {
+            // Menambahkan/menghapus class 'collapsed' pada sidebar
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html>

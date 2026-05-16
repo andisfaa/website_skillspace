@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpace - Profil Freelancer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Menu</h2>
+                <i class="fa-solid fa-bars" id="menu-icon-sidebar"></i>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="post-skill.html" class="sidebar-item">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <span>Post Skill</span>
+                </a>
+                <a href="dashboard-pesanan.html" class="sidebar-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="profil-freelancer.html" class="sidebar-item active">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profil</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="homepage.html" class="sidebar-item home-item">
+                    <span>Home</span>
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sidebar-main-content">
+            <!-- Mode Edit -->
+            <div id="edit-section" class="preview-wrapper">
+                <div class="preview-inner-container">
+                    <h2 class="page-section-title">Profil Freelancer</h2>
+                    
+                    <div class="preview-box">
+                        <!-- Profil Header -->
+                        <div class="profil-header">
+                            <div class="profil-img-wrapper">
+                                <img src="Adrian fernando.PNG" alt="Profile Image" id="display-img">
+                            </div>
+                            <div class="profil-info">
+                                <input type="text" id="input-name" value="Yehezkiel Saputra T." class="profil-name-input" placeholder="Masukkan nama Anda">
+                                <div class="profil-actions">
+                                    <input type="text" id="input-role" value="Freelancer" class="profil-role-input">
+                                    <button type="button" class="btn-pilih-foto">PILIH FOTO</button>
+                                </div>
+                                <div class="profil-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deskripsi Profil -->
+                        <textarea id="input-desc" class="ps-textarea" rows="4">Saya adalah freelancer UI/UX Designer dengan pengalaman 2 tahun dalam merancang tampilan aplikasi dan website yang user-friendly. Berfokus pada desain modern, minimalis, dan meningkatkan pengalaman pengguna.</textarea>
+
+                        <!-- List Pencapaian / Portofolio -->
+                        <textarea id="input-achieve" class="ps-textarea" rows="5">
+• 10+ Project UI Design selesai
+• 5 Website Company Profile
+• 3 Aplikasi Mobile Design
+• Rating rata-rata 4.9⭐</textarea>
+
+                        <!-- Tombol Simpan -->
+                        <button type="button" class="ps-btn-preview" style="margin-top: 10px;" onclick="saveProfile()">SIMPAN PROFIL</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode View (Output) -->
+            <div id="view-section" class="preview-wrapper hidden">
+                <div class="preview-inner-container">
+                    <h2 class="page-section-title">Profil Freelancer</h2>
+                    
+                    <div class="preview-output-container">
+                        <!-- Profil Header (Sama tapi Readonly) -->
+                        <div class="profil-header">
+                            <div class="profil-img-wrapper">
+                                <img src="Adrian fernando.PNG" alt="Profile Image">
+                            </div>
+                            <div class="profil-info">
+                                <h3 id="output-name" style="margin:0; font-size:1.3rem;">Yehezkiel Saputra T.</h3>
+                                <div class="profil-actions">
+                                    <input type="text" id="output-role" class="profil-role-input" readonly>
+                                </div>
+                                <div class="profil-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Box Utama Dua Kolom -->
+                        <div class="output-main-box">
+                            <div id="output-desc" class="output-left">
+                                <!-- Isi deskripsi -->
+                            </div>
+                            <div id="output-achieve" class="output-right">
+                                <!-- Isi pencapaian -->
+                            </div>
+                        </div>
+
+                        <!-- Extra Fields -->
+                        <div class="output-extra-field">email@gmail.com</div>
+                        <div class="output-extra-field">Tambahkan Sosial Media</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script Interaktif JS -->
+    <script>
+        // Sidebar Toggle
+        const sidebar = document.querySelector('.sidebar');
+        const menuIconSidebar = document.querySelector('#menu-icon-sidebar');
+        if(menuIconSidebar) {
+            menuIconSidebar.addEventListener('click', function () {
+                sidebar.classList.toggle('collapsed');
+            });
+        }
+
+        // Logic Save Profile
+        function saveProfile() {
+            // Ambil data dari input
+            const name = document.getElementById('input-name').value;
+            const role = document.getElementById('input-role').value;
+            const desc = document.getElementById('input-desc').value;
+            const achieve = document.getElementById('input-achieve').value;
+
+            // Masukkan ke view mode
+            document.getElementById('output-name').innerText = name;
+            document.getElementById('output-role').value = role;
+            document.getElementById('output-desc').innerText = desc;
+            
+            // Format newline untuk pencapaian
+            document.getElementById('output-achieve').innerHTML = achieve.replace(/\n/g, '<br>');
+
+            // Switch mode
+            toggleMode();
+        }
+
+        function toggleMode() {
+            const editSec = document.getElementById('edit-section');
+            const viewSec = document.getElementById('view-section');
+            
+            editSec.classList.toggle('hidden');
+            viewSec.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

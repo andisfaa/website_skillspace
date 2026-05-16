@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpace - Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Menu</h2>
+                <i class="fa-solid fa-bars" id="menu-icon-sidebar"></i>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="post-skill.html" class="sidebar-item active">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <span>Post Skill</span>
+                </a>
+                <a href="dashboard-freelancer.html" class="sidebar-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profil</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="homepage.html" class="sidebar-item home-item">
+                    <span>Home</span>
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sidebar-main-content">
+            <!-- Topbar (Profile Icon only based on design) -->
+            <div class="topbar">
+                <i class="fa-solid fa-user topbar-profile"></i>
+            </div>
+
+            <!-- Preview Area -->
+            <div class="preview-wrapper">
+                <div class="preview-inner-container">
+                    <!-- Title -->
+                    <h2 class="page-section-title">Preview</h2>
+                    
+                    <!-- Box Preview -->
+                    <div class="preview-box">
+                        
+                        <!-- Mini Card Profile/Service -->
+                        <div class="preview-mini-card">
+                            <div class="pmc-left">
+                                <!-- Menggunakan placeholder ilustrasi, diganti sesuai file nanti -->
+                                <div class="pmc-image-placeholder">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                            </div>
+                            <div class="pmc-right">
+                                <div class="pmc-header">
+                                    <h3 class="pmc-title">Copywriting - Jasa</h3>
+                                </div>
+                                <div class="pmc-bottom">
+                                    <div class="pmc-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <div class="pmc-price">Rp100.000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kategori Dropdown Full Width -->
+                        <div class="preview-category-full">
+                            <select class="preview-select">
+                                <option value="jasa" selected>Jasa</option>
+                            </select>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <div class="preview-desc-section">
+                            <label class="ps-label" style="font-size: 0.95rem; font-weight: 500;">Deskripsi</label>
+                            <div class="preview-desc-box">
+                                Jasa Copywriting membantu membuat tulisan yang menarik dan persuasif untuk kebutuhan pemasaran seperti caption media sosial, deskripsi produk, konten website, dan materi promosi. Konten ditulis dengan gaya yang sesuai dengan brand dan target audiens agar lebih menarik serta meningkatkan engagement dan penjualan.
+                            </div>
+                        </div>
+
+                        <!-- Button Publikasikan -->
+                        <button type="button" class="ps-btn-preview" id="btnPublikasikan" style="margin-top: 20px;">PUBLIKASIKAN</button>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Success Overlay -->
+    <div class="success-modal-overlay" id="successModal">
+        <div class="success-modal-content">
+            <i class="fa-solid fa-circle-check success-icon"></i>
+            <h3>Skill berhasil dipublikasikan!</h3>
+            <p>Layanan anda telah terpublikasi</p>
+            <!-- Tombol Kembali mengarahkan user ke halaman pembuka / dashboard -->
+            <button class="btn-kembali" onclick="window.location.href='dashboard-freelancer.html'">KEMBALI</button>
+        </div>
+    </div>
+
+    <!-- Script Interaktif JS -->
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        const menuIconSidebar = document.querySelector('#menu-icon-sidebar');
+        
+        // Toggle Sidebar
+        menuIconSidebar.addEventListener('click', function () {
+            sidebar.classList.toggle('collapsed');
+        });
+
+        // Script untuk Modal
+        const btnPublikasikan = document.getElementById('btnPublikasikan');
+        const successModal = document.getElementById('successModal');
+
+        btnPublikasikan.addEventListener('click', function() {
+            successModal.classList.add('show');
+        });
+
+        // Jika user klik area gelap di luar modal, modal akan tertutup (opsional)
+        successModal.addEventListener('click', function(e) {
+            if (e.target === successModal) {
+                successModal.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
