@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpace - Dashboard Klien</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="client-dash-body">
+    <div class="client-dash-wrapper">
+        <!-- Top Navigation -->
+        <nav class="client-top-nav">
+            <div class="top-nav-left">
+                <i class="fa-solid fa-bars" id="sidebarToggle"></i>
+                <div class="client-logo">
+                    <h1 class="landing-logo">
+                        <span class="text-skill">Skill</span><span class="text-space">Space.</span>
+                    </h1>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="client-main-content">
+                <!-- VIEW: PESANAN -->
+                <div id="pesananView" class="hidden">
+                    <div class="view-header">
+                        <h2><i class="fa-solid fa-clipboard-list"></i> Pesanan</h2>
+                    </div>
+                    
+                    <div class="order-filters" id="orderFilters">
+                        <button class="filter-tab active" data-filter="all">Semua</button>
+                        <button class="filter-tab" data-filter="processing">Diproses</button>
+                        <button class="filter-tab" data-filter="completed">Selesai</button>
+                        <button class="filter-tab" data-filter="cancelled">Dibatalkan</button>
+                    </div>
+
+                    <div class="orders-container" id="ordersContainer">
+                        <!-- Order 1: Dibatalkan -->
+                        <div class="order-card" data-status="cancelled">
+                            <div class="order-img">
+                                <img src="copywriting.png" alt="Order">
+                            </div>
+                            <div class="order-info">
+                                <div class="order-info-top">
+                                    <h3>Copywriting - Jasa</h3>
+                                    <span class="status-badge status-cancelled">Dibatalkan</span>
+                                </div>
+                                <p class="freelancer-name">Freelancer A</p>
+                                <p class="invoice-num">Pesanan INV-2026-001</p>
+                                <p class="order-meta"><i class="fa-solid fa-calendar"></i> 25 Mei 2026 • 1 item</p>
+                                <div class="order-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>5.0 (50 ulasan)</span>
+                                </div>
+                            </div>
+                            <div class="order-price-section">
+                                <div class="order-price">
+                                    <span class="price-label">Rp100.000</span>
+                                    <span class="order-date-small">Dipesan 25 Mei 2026</span>
+                                </div>
+                                <div class="order-actions">
+                                    <button class="btn-order-detail">Beli Lagi</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 2: Diproses -->
+                        <div class="order-card" data-status="processing">
+                            <div class="order-img">
+                                <img src="voice_over.png" alt="Order">
+                            </div>
+                            <div class="order-info">
+                                <div class="order-info-top">
+                                    <h3>Voice Over</h3>
+                                    <span class="status-badge status-processing">Diproses</span>
+                                </div>
+                                <p class="freelancer-name">Freelancer B</p>
+                                <p class="invoice-num">Pesanan INV-2026-002</p>
+                                <p class="order-meta"><i class="fa-solid fa-calendar"></i> 26 Mei 2026 • 1 item</p>
+                                <div class="order-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <span>4.9 (70 ulasan)</span>
+                                </div>
+                            </div>
+                            <div class="order-price-section">
+                                <div class="order-price">
+                                    <span class="price-label">Rp100.000</span>
+                                    <span class="order-date-small">Dipesan 26 Mei 2026</span>
+                                </div>
+                                <div class="order-actions">
+                                    <button class="btn-order-detail">Lihat Detail</button>
+                                    <button class="btn-order-chat">Hubungi</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 3: Selesai -->
+                        <div class="order-card" data-status="completed">
+                            <div class="order-img">
+                                <img src="web_ui_ux.png" alt="Order">
+                            </div>
+                            <div class="order-info">
+                                <div class="order-info-top">
+                                    <h3>Web UI/UX</h3>
+                                    <span class="status-badge status-completed">Selesai</span>
+                                </div>
+                                <p class="freelancer-name">Freelancer C</p>
+                                <p class="invoice-num">Pesanan INV-2026-003</p>
+                                <p class="order-meta"><i class="fa-solid fa-calendar"></i> 28 Mei 2026 • 1 item</p>
+                                <div class="order-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>5.0 (100 ulasan)</span>
+                                </div>
+                            </div>
+                            <div class="order-price-section">
+                                <div class="order-price">
+                                    <span class="price-label">Rp100.000</span>
+                                    <span class="order-date-small">Dipesan 28 Mei 2026</span>
+                                </div>
+                                <div class="order-actions">
+                                    <button class="btn-order-detail">Lihat Detail</button>
+                                    <button class="btn-order-chat">Hubungi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- VIEW: SEARCH & RESULTS -->
+            <div id="searchView">
+                <div class="client-search-container">
+                    <div class="client-search-box">
+                        <input type="text" id="jasaSearch" placeholder="Pencarian (Ketik : Jasa Digital)">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <div class="client-results-area" id="resultsArea">
+                    <div class="service-card">
+                        <div class="service-card-left">
+                            <div class="service-img-box"><img src="copywriting.png" alt="Copywriting"></div>
+                            <div class="service-info">
+                                <h3>Copywriting - Jasa</h3>
+                                <div class="service-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card-right">
+                            <i class="fa-solid fa-heart wishlist-heart"></i>
+                            <button class="btn-pilih">Pilih</button>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-left">
+                            <div class="service-img-box"><img src="web_ui_ux.png" alt="Web UI/UX"></div>
+                            <div class="service-info">
+                                <h3>Web UI/UX</h3>
+                                <div class="service-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card-right">
+                            <i class="fa-solid fa-heart wishlist-heart"></i>
+                            <button class="btn-pilih">Pilih</button>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-left">
+                            <div class="service-img-box"><img src="data_entry.png" alt="Data Entry"></div>
+                            <div class="service-info">
+                                <h3>Data Entry</h3>
+                                <div class="service-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card-right">
+                            <i class="fa-solid fa-heart wishlist-heart"></i>
+                            <button class="btn-pilih">Pilih</button>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-left">
+                            <div class="service-img-box"><img src="editing_videografi.png" alt="Editing"></div>
+                            <div class="service-info">
+                                <h3>Editing & Videografi</h3>
+                                <div class="service-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card-right">
+                            <i class="fa-solid fa-heart wishlist-heart"></i>
+                            <button class="btn-pilih">Pilih</button>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-left">
+                            <div class="service-img-box"><img src="design_graphic.png" alt="Design"></div>
+                            <div class="service-info">
+                                <h3>Design Graphic</h3>
+                                <div class="service-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card-right">
+                            <i class="fa-solid fa-heart wishlist-heart"></i>
+                            <button class="btn-pilih">Pilih</button>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-left">
+                            <div class="service-img-box"><img src="voice_over.png" alt="Voice Over"></div>
+                            <div class="service-info">
+                                <h3>Voice Over</h3>
+                                <div class="service-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card-right">
+                            <i class="fa-solid fa-heart wishlist-heart"></i>
+                            <button class="btn-pilih">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- VIEW: WISHLIST -->
+                <div id="wishlistView" class="hidden">
+                    <div class="view-header">
+                        <h2><i class="fa-solid fa-heart"></i> Wishlist Saya</h2>
+                    </div>
+                    <div class="wishlist-empty-state">
+                        <p>Belum ada jasa yang Anda simpan.</p>
+                    </div>
+                    <div class="wishlist-container client-results-area show">
+                        <!-- Wishlist items will be cloned here -->
+                    </div>
+                </div>
+
+                <!-- VIEW: PROFIL KLIEN -->
+                <div id="profilView" class="hidden">
+                    <div class="view-header">
+                        <h2><i class="fa-solid fa-user"></i> Profil Klien</h2>
+                    </div>
+                    
+                    <div class="profile-main-card">
+                        <div class="profile-header-section">
+                            <div class="profile-img-box">
+                                <img src="cowo (1).jpg" alt="Profile">
+                            </div>
+                            <div class="profile-meta">
+                                <h3 class="profile-name">Adrian Fernando</h3>
+                                <div class="profile-badge-row">
+                                    <span class="role-badge">Klien</span>
+                                    <button class="btn-pilih-foto">PILIH FOTO</button>
+                                </div>
+                                <div class="profile-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-bio-box">
+                            <textarea>Saya adalah klien yang berfokus pada pengembangan produk digital berkualitas tinggi. Berpengalaman dalam bekerja sama dengan freelancer untuk merancang tampilan aplikasi dan website yang user-friendly.</textarea>
+                        </div>
+
+                        <div class="profile-stats-box">
+                            <ul>
+                                <li>• 10+ Project UI Design selesai</li>
+                                <li>• 5 Website Company Profile</li>
+                                <li>• 3 Aplikasi Mobile Design</li>
+                                <li>• Rating rata-rata 4.9 ⭐</li>
+                            </ul>
+                        </div>
+
+                        <button class="btn-simpan-profil-large">SIMPAN PROFIL</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Offcanvas Sidebar Menu -->
+        <div class="offcanvas-overlay" id="sidebarOverlay"></div>
+        <aside class="offcanvas-sidebar sidebar" id="clientSidebar">
+            <div class="sidebar-header">
+                <h2>Menu</h2>
+                <i class="fa-solid fa-bars" id="closeSidebar"></i>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-item" id="menuPesanan">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Pesanan Saya</span>
+                </a>
+                <a href="#" class="sidebar-item" id="menuWishlist">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Wishlist Saya</span>
+                </a>
+                <a href="#" class="sidebar-item" id="menuProfil">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profil Klien</span>
+                </a>
+            </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="footer-home">
+                <span>Home</span>
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Modal Detail Jasa -->
+    <div class="detail-modal-overlay" id="detailModal">
+        <div class="detail-modal-content">
+            <div class="detail-header">
+                <div class="detail-header-left">
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <h2>Detail Jasa</h2>
+                </div>
+                <i class="fa-solid fa-xmark close-detail" id="closeDetailModal"></i>
+            </div>
+
+            <div class="detail-body">
+                <div class="detail-info-section">
+                    <h1 class="detail-service-title" id="detailTitle">Copywriting - Jasa</h1>
+                    <p class="detail-service-desc" id="detailDesc">Jasa Copywriting Profesional untuk Branding & Marketing (IG, Website, Ads)</p>
+                    
+                    <div class="detail-extra-info">
+                        <h3>Informasi Tambahan</h3>
+                        <ul>
+                            <li id="detailTime"><i class="fa-solid fa-stopwatch"></i> Waktu pengerjaan: 1-3 hari</li>
+                            <li id="detailRevision"><i class="fa-solid fa-rotate"></i> Revisi: sesuai paket</li>
+                            <li id="detailFormat"><i class="fa-solid fa-file-lines"></i> Format: Google Docs / PDF</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-visual-section">
+                    <div class="detail-preview-img">
+                        <img src="building.png" alt="Service Preview" id="detailImg">
+                    </div>
+                    <div class="detail-rating">
+                        <span>150+</span>
+                        <div class="detail-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-footer">
+                <button class="btn-bayar">BAYAR SEKARANG</button>
+                <div class="detail-chat">
+                    <div class="chat-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span>Chat dengan Freelancer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Metode Pembayaran -->
+    <div class="payment-modal-overlay" id="paymentModal">
+        <div class="payment-modal-content">
+            <div class="payment-header">
+                <div class="payment-header-left">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <h2>METODE PEMBAYARAN</h2>
+                </div>
+                <i class="fa-solid fa-circle-xmark close-payment" id="closePaymentModal"></i>
+            </div>
+
+            <div class="payment-body">
+                <!-- Opsi Pembayaran -->
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="pay-method" checked>
+                        <span class="radio-custom"></span>
+                        <span class="option-text">Qris</span>
+                        <div class="option-logos"><i class="fa-solid fa-qrcode"></i></div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="pay-method">
+                        <span class="radio-custom"></span>
+                        <span class="option-text">E-wallet (Gopay, Dana, OVO)</span>
+                        <div class="option-logos">
+                            <i class="fa-solid fa-wallet"></i>
+                            <i class="fa-brands fa-google-pay"></i>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="pay-method">
+                        <span class="radio-custom"></span>
+                        <span class="option-text">Transfer Bank (VA)</span>
+                        <div class="option-logos"><i class="fa-solid fa-building-columns"></i></div>
+                    </label>
+                </div>
+
+                <!-- Ringkasan Tagihan -->
+                <div class="billing-summary">
+                    <div class="billing-line"><span>Harga Jasa</span><span id="payServicePrice">Rp100.000</span></div>
+                    <div class="billing-line"><span>Biaya Layanan</span><span id="payAdminFee">Rp10.000</span></div>
+                    <div class="billing-line"><span>Diskon</span><span>Rp0</span></div>
+                </div>
+
+                <div class="total-pay">
+                    <span>TOTAL BAYAR</span>
+                    <span id="payTotalPrice">Rp110.000</span>
+                </div>
+
+                <!-- Voucher -->
+                <div class="voucher-section">
+                    <input type="text" placeholder="Punya kode Voucher?">
+                    <button class="btn-terapkan">Terapkan</button>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="terms-section">
+                    <p>Checkboxer & Tombol</p>
+                    <label class="terms-checkbox">
+                        <input type="checkbox">
+                        <span>Saya menyetujui ketentuan layanan</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="payment-footer">
+                <button class="btn-bayar-final" id="btnBayarFinal">
+                    <i class="fa-solid fa-lock"></i> BAYAR SEKARANG
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bayar dengan QRIS -->
+    <div class="qris-modal-overlay" id="qrisModal">
+        <div class="qris-modal-content">
+            <div class="qris-header">
+                <i class="fa-solid fa-arrow-left back-to-payment" onclick="backToPayment()"></i>
+                <h2>BAYAR DENGAN QRIS</h2>
+                <i class="fa-solid fa-circle-xmark close-qris" onclick="closeAllModals()"></i>
+            </div>
+            <div class="qris-body">
+                <div class="notice-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <p>Scan kode QR menggunakan aplikasi e-wallet atau m-banking yang mendukung QRIS</p>
+                </div>
+                <div class="payment-stats">
+                    <div class="stat-item">
+                        <label>Total Pembayaran</label>
+                        <span class="green-text">Rp 310.000</span>
+                    </div>
+                    <div class="stat-item">
+                        <label>Sisa Waktu</label>
+                        <span class="green-text">04.59</span>
+                    </div>
+                </div>
+                <div class="qr-container">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SkillSpacePayment" alt="QR Code">
+                    <div class="qris-logo-text">QRIS</div>
+                    <div class="qr-link">https://s.id/pay</div>
+                </div>
+                <div class="qris-footer-actions">
+                    <button class="btn-proses-pay" onclick="showSuccessModal()">CEK STATUS PEMBAYARAN</button>
+                </div>
+                <p class="footer-note">Transaksi ini akan otomatis dibatalkan jika waktu habis</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bayar dengan VA -->
+    <div class="va-modal-overlay" id="vaModal">
+        <div class="va-modal-content">
+            <div class="va-header">
+                <i class="fa-solid fa-arrow-left back-to-payment" onclick="backToPayment()"></i>
+                <h2>BAYAR DENGAN VIRTUAL ACCOUNT</h2>
+                <i class="fa-solid fa-circle-xmark close-va" onclick="closeAllModals()"></i>
+            </div>
+            <div class="va-body">
+                <div class="notice-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <p>Transfer ke Virtual Account di bawah ini melalui mobile banking, ATM, atau internet banking</p>
+                </div>
+                <div class="payment-stats">
+                    <div class="stat-item">
+                        <label>Total Pembayaran</label>
+                        <span class="green-text">Rp 310.000</span>
+                    </div>
+                    <div class="stat-item">
+                        <label>Sisa Waktu</label>
+                        <span class="green-text">23.59.59</span>
+                    </div>
+                </div>
+                <div class="bank-selection">
+                    <p>Pilih Bank</p>
+                    <div class="bank-logos">
+                        <div class="bank-logo active"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA"></div>
+                        <div class="bank-logo"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/2/22/BNI_logo.svg" alt="BNI"></div>
+                        <div class="bank-logo"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/2/2e/BRI_Logo.svg" alt="BRI"></div>
+                        <div class="bank-logo"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" alt="Mandiri"></div>
+                        <div class="bank-logo"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/c/c8/CIMB_Niaga_logo.svg" alt="CIMB"></div>
+                    </div>
+                </div>
+                <div class="va-number-section">
+                    <p>Nomor Virtual Account</p>
+                    <div class="va-box">
+                        <span id="vaNum">8877 9980 1567</span>
+                        <button onclick="copyVA()">Salin</button>
+                    </div>
+                </div>
+                <div class="va-footer-actions">
+                    <button class="btn-proses-pay" onclick="showSuccessModal()">KONFIRMASI PEMBAYARAN</button>
+                </div>
+                <p class="footer-note">Transaksi ini akan otomatis dibatalkan jika waktu habis</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bayar dengan E-wallet -->
+    <div class="ewallet-modal-overlay" id="ewalletModal">
+        <div class="ewallet-modal-content">
+            <div class="ewallet-header">
+                <i class="fa-solid fa-arrow-left back-to-payment" onclick="backToPayment()"></i>
+                <h2>BAYAR DENGAN E-WALLET</h2>
+                <i class="fa-solid fa-circle-xmark close-ewallet" onclick="closeAllModals()"></i>
+            </div>
+            <div class="ewallet-body">
+                <div class="notice-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <p>Masukkan nomor handphone yang terdaftar pada aplikasi e-wallet pilihan Anda untuk melanjutkan pembayaran</p>
+                </div>
+                <div class="payment-stats">
+                    <div class="stat-item">
+                        <label>Total Pembayaran</label>
+                        <span class="green-text">Rp 310.000</span>
+                    </div>
+                    <div class="stat-item">
+                        <label>Sisa Waktu</label>
+                        <span class="green-text">09.59</span>
+                    </div>
+                </div>
+                <div class="ewallet-selection">
+                    <p>Pilih E-wallet</p>
+                    <div class="ewallet-logos">
+                        <div class="ewallet-logo active"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="Gopay"></div>
+                        <div class="ewallet-logo"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO"></div>
+                        <div class="ewallet-logo"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/3/30/DANA_logo.svg" alt="Dana"></div>
+                        <div class="ewallet-logo"><img src="https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/8/8e/LinkAja.svg" alt="LinkAja"></div>
+                    </div>
+                </div>
+                <div class="phone-number-section">
+                    <p>Nomor Handphone</p>
+                    <div class="phone-input-box">
+                        <input type="text" placeholder="Contoh: 081234567890">
+                        <button class="btn-proses-pay">LANJUTKAN</button>
+                    </div>
+                </div>
+                <p class="footer-note">Pastikan saldo e-wallet Anda mencukupi sebelum melanjutkan</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sukses Simpan Profil -->
+    <div class="success-modal-overlay" id="profileSuccessModal">
+        <div class="success-modal-content">
+            <div class="success-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Profil Berhasil Disimpan!</h2>
+            <p>Informasi profil Anda telah diperbarui dan kini sudah aktif di sistem SkillSpace.</p>
+            <button class="btn-success-close" id="closeProfileSuccess">OKE</button>
+        </div>
+    </div>
+
+    <!-- Modal Pembayaran Sukses -->
+    <div class="success-modal-overlay" id="successModal">
+        <div class="success-modal-content">
+            <div class="success-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Pembayaran Sukses!</h2>
+            <p>Pesanan berhasil dibuat.</p>
+            <div class="success-actions">
+                <button class="btn-lihat-pesanan" onclick="closeAllModals()">LIHAT PESANAN</button>
+                <button class="btn-kembali-dash" onclick="closeAllModals()">KEMBALI</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search Logic
+        const searchInput = document.getElementById('jasaSearch');
+        const resultsArea = document.getElementById('resultsArea');
+        const detailModal = document.getElementById('detailModal');
+        const paymentModal = document.getElementById('paymentModal');
+        const qrisModal = document.getElementById('qrisModal');
+        const vaModal = document.getElementById('vaModal');
+        const ewalletModal = document.getElementById('ewalletModal');
+        const successModal = document.getElementById('successModal');
+
+        // Logic untuk Simpan Profil
+        const btnSimpanProfil = document.querySelector('.btn-simpan-profil-large');
+        const profileSuccessModal = document.getElementById('profileSuccessModal');
+        const closeProfileSuccess = document.getElementById('closeProfileSuccess');
+
+        if (btnSimpanProfil) {
+            btnSimpanProfil.onclick = () => {
+                profileSuccessModal.classList.add('show');
+            };
+        }
+
+        if (closeProfileSuccess) {
+            closeProfileSuccess.onclick = () => {
+                profileSuccessModal.classList.remove('show');
+                // Kembali ke halaman pencarian
+                showView('searchView');
+                
+                // Focus ke search bar
+                setTimeout(() => {
+                    document.getElementById('jasaSearch').focus();
+                }, 100);
+                
+                // Reset active menu state if needed
+                document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+            };
+        }
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const searchView = document.getElementById('searchView');
+        const wishlistView = document.getElementById('wishlistView');
+        const profilView = document.getElementById('profilView');
+        const pesananView = document.getElementById('pesananView');
+        const menuWishlist = document.getElementById('menuWishlist');
+        const menuProfil = document.getElementById('menuProfil');
+        const menuPesanan = document.getElementById('menuPesanan');
+        const wishlistContainer = document.querySelector('.wishlist-container');
+        const wishlistEmptyState = document.querySelector('.wishlist-empty-state');
+
+        // Service Data for Previews
+        const serviceData = {
+            "Copywriting - Jasa": {
+                title: "Copywriting - Jasa",
+                desc: "Jasa Copywriting Profesional untuk Branding & Marketing (IG, Website, Ads)",
+                time: "1-3 hari",
+                revision: "sesuai paket",
+                format: "Google Docs / PDF",
+                img: "copywriting.png",
+                price: 100000
+            },
+            "Web UI/UX": {
+                title: "Web UI/UX",
+                desc: "Jasa Web UI/UX Profesional untuk Web Design",
+                time: "1-5 hari",
+                revision: "sesuai paket",
+                format: "Figma / PDF / PNG",
+                img: "web_ui_ux.png",
+                price: 500000
+            },
+            "Data Entry": {
+                title: "Data Entry",
+                desc: "Jasa input data cepat, rapi, dan akurat untuk Excel, Word, Google Sheets, maupun sistem online.",
+                time: "1-3 hari",
+                revision: "sesuai paket",
+                format: "Excel / Google Sheets / CSV / PDF",
+                img: "data_entry.png",
+                price: 50000
+            },
+            "Editing & Videografi": {
+                title: "Editing & Videografi",
+                desc: "Jasa editing video kreatif dan profesional untuk kebutuhan konten media sosial, promosi bisnis, YouTube, hingga event.",
+                time: "1-3 hari",
+                revision: "sesuai paket",
+                format: "MP4 / MOV",
+                img: "editing_videografi.png",
+                price: 300000
+            },
+            "Design Graphic": {
+                title: "Design Graphic",
+                desc: "Jasa desain kreatif dan modern untuk logo, banner bisnis, media sosial, branding, dan promosi digital.",
+                time: "1-3 hari",
+                revision: "sesuai paket",
+                format: "PDF / PNG / JPG",
+                img: "design_graphic.png",
+                price: 150000
+            },
+            "Voice Over": {
+                title: "Voice Over",
+                desc: "Jasa pengisi suara profesional untuk kebutuhan iklan, konten media sosial, video promosi, narasi, dan podcast.",
+                time: "1-3 hari",
+                revision: "sesuai paket",
+                format: "MP3 / WAV",
+                img: "voice_over.png",
+                price: 100000
+            }
+        };
+
+        // Toggle Heart & Add to Wishlist
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('wishlist-heart')) {
+                const heart = e.target;
+                const card = heart.closest('.service-card');
+                
+                heart.classList.toggle('active');
+                
+                if (heart.classList.contains('active')) {
+                    // Clone card for wishlist
+                    const clone = card.cloneNode(true);
+                    // Update classes for wishlist context if needed
+                    wishlistContainer.appendChild(clone);
+                } else {
+                    // Remove from wishlist (simple search by title)
+                    const title = card.querySelector('h3').innerText;
+                    const items = wishlistContainer.querySelectorAll('.service-card');
+                    items.forEach(item => {
+                        if (item.querySelector('h3').innerText === title) {
+                            item.remove();
+                        }
+                    });
+                }
+                
+                // Update empty state
+                updateWishlistEmptyState();
+            }
+        });
+
+        function updateWishlistEmptyState() {
+            if (wishlistContainer.children.length > 0) {
+                wishlistEmptyState.classList.add('hidden');
+            } else {
+                wishlistEmptyState.classList.remove('hidden');
+            }
+        }
+
+        // View Switching Logic
+        menuWishlist.onclick = (e) => {
+            e.preventDefault();
+            searchView.classList.add('hidden');
+            profilView.classList.add('hidden');
+            pesananView.classList.add('hidden');
+            wishlistView.classList.remove('hidden');
+            closeAllModals();
+        };
+
+        menuProfil.onclick = (e) => {
+            e.preventDefault();
+            searchView.classList.add('hidden');
+            wishlistView.classList.add('hidden');
+            pesananView.classList.add('hidden');
+            profilView.classList.remove('hidden');
+            closeAllModals();
+        };
+
+        menuPesanan.onclick = (e) => {
+            e.preventDefault();
+            searchView.classList.add('hidden');
+            wishlistView.classList.add('hidden');
+            profilView.classList.add('hidden');
+            pesananView.classList.remove('hidden');
+            closeAllModals();
+        };
+
+        document.querySelector('.btn-lihat-pesanan').onclick = () => {
+            searchView.classList.add('hidden');
+            wishlistView.classList.add('hidden');
+            profilView.classList.add('hidden');
+            pesananView.classList.remove('hidden');
+            closeAllModals();
+        };
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            if (query.includes('jasa digital') || query.trim() === 'jasa digital') {
+                resultsArea.classList.add('show');
+                const cards = resultsArea.querySelectorAll('.service-card');
+                cards.forEach((card, index) => {
+                    card.style.animation = 'none';
+                    card.offsetHeight;
+                    card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.1}s`;
+                });
+            } else {
+                resultsArea.classList.remove('show');
+            }
+        });
+
+        // Event listener for "Pilih" buttons
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('btn-pilih')) {
+                const card = e.target.closest('.service-card');
+                const serviceTitle = card.querySelector('h3').innerText;
+                const data = serviceData[serviceTitle];
+
+                if (data) {
+                    // Populate Detail Modal
+                    document.getElementById('detailTitle').innerText = data.title;
+                    document.getElementById('detailDesc').innerText = data.desc;
+                    document.getElementById('detailTime').innerHTML = `<i class="fa-solid fa-stopwatch"></i> Waktu pengerjaan: ${data.time}`;
+                    document.getElementById('detailRevision').innerHTML = `<i class="fa-solid fa-rotate"></i> Revisi: ${data.revision}`;
+                    document.getElementById('detailFormat').innerHTML = `<i class="fa-solid fa-file-lines"></i> Format: ${data.format}`;
+                    document.getElementById('detailImg').src = data.img;
+
+                    // Populate Payment Modal Summary
+                    const adminFee = 10000;
+                    const totalPrice = data.price + adminFee;
+                    
+                    document.getElementById('payServicePrice').innerText = `Rp${data.price.toLocaleString('id-ID')}`;
+                    document.getElementById('payAdminFee').innerText = `Rp${adminFee.toLocaleString('id-ID')}`;
+                    document.getElementById('payTotalPrice').innerText = `Rp${totalPrice.toLocaleString('id-ID')}`;
+                }
+
+                detailModal.classList.add('show');
+            }
+        });
+
+        // Modal transition logic
+        document.querySelector('.btn-bayar').onclick = () => {
+            detailModal.classList.remove('show');
+            paymentModal.classList.add('show');
+        }
+
+        document.getElementById('btnBayarFinal').onclick = () => {
+            const selectedMethod = document.querySelector('input[name="pay-method"]:checked').parentElement.querySelector('.option-text').innerText;
+            paymentModal.classList.remove('show');
+            if (selectedMethod.includes('Qris')) {
+                qrisModal.classList.add('show');
+            } else if (selectedMethod.includes('Bank')) {
+                vaModal.classList.add('show');
+            } else if (selectedMethod.includes('E-wallet')) {
+                ewalletModal.classList.add('show');
+            } else {
+                alert('Metode pembayaran dipilih: ' + selectedMethod);
+            }
+        };
+
+        function showSuccessModal() {
+            qrisModal.classList.remove('show');
+            vaModal.classList.remove('show');
+            ewalletModal.classList.remove('show');
+            successModal.classList.add('show');
+        }
+
+        function backToPayment() {
+            qrisModal.classList.remove('show');
+            vaModal.classList.remove('show');
+            ewalletModal.classList.remove('show');
+            paymentModal.classList.add('show');
+        }
+
+        function closeAllModals() {
+            detailModal.classList.remove('show');
+            paymentModal.classList.remove('show');
+            qrisModal.classList.remove('show');
+            vaModal.classList.remove('show');
+            ewalletModal.classList.remove('show');
+            successModal.classList.remove('show');
+            sidebarOverlay.classList.remove('show');
+            clientSidebar.classList.remove('open'); // Ensure sidebar closes too
+        }
+
+        document.getElementById('closeDetailModal').onclick = closeAllModals;
+        document.getElementById('closePaymentModal').onclick = closeAllModals;
+
+        function copyVA() {
+            const vaNum = document.getElementById('vaNum').innerText;
+            navigator.clipboard.writeText(vaNum);
+            alert('Nomor VA berhasil disalin!');
+        }
+
+        // Sidebar Pop-up Logic
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const clientSidebar = document.getElementById('clientSidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            clientSidebar.classList.add('open');
+            sidebarOverlay.classList.add('show');
+        });
+
+        closeSidebar.addEventListener('click', () => {
+            clientSidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('show');
+        });
+
+        sidebarOverlay.addEventListener('click', closeAllModals);
+
+        // Process final payment actions
+        document.querySelector('.btn-proses-pay').onclick = showSuccessModal;
+        // Simulating final action for QRIS (e.g. clicking on the QR)
+        document.querySelector('.qr-container').onclick = showSuccessModal;
+        // Simulating final action for VA (e.g. after copying)
+        // (In a real app, this would be an automatic detection from the backend)
+        // Filter Pesanan Logic
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const orderCards = document.querySelectorAll('.order-card');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filterValue = tab.getAttribute('data-filter');
+
+                orderCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-status') === filterValue) {
+                        card.style.display = 'flex';
+                        card.style.animation = 'fadeInUp 0.4s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

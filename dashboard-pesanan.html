@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkillSpace - Dashboard Pesanan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="sidebar-layout">
         <!-- Sidebar -->
@@ -18,7 +22,7 @@
                 <h2>Menu</h2>
                 <i class="fa-solid fa-bars" id="menu-icon-sidebar"></i>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <a href="post-skill.html" class="sidebar-item">
                     <i class="fa-solid fa-square-plus"></i>
@@ -33,9 +37,9 @@
                     <span>Profil</span>
                 </a>
             </nav>
-            
+
             <div class="sidebar-footer">
-                <a href="homepage.html" class="sidebar-item home-item">
+                <a href="index.html" class="sidebar-item home-item">
                     <span>Home</span>
                     <i class="fa-solid fa-house"></i>
                 </a>
@@ -122,7 +126,7 @@
         // Sidebar Toggle
         const sidebar = document.querySelector('.sidebar');
         const menuIconSidebar = document.querySelector('#menu-icon-sidebar');
-        
+
         menuIconSidebar.addEventListener('click', function () {
             sidebar.classList.toggle('collapsed');
         });
@@ -135,12 +139,12 @@
             { page: 1, title: 'Editing Videografi', pack: 'Paket Premium', client: 'Zayyan Fadhil', date: '21 April 2026', status: 'Diproses', icon: 'fa-video', avatar: 'Adrian pratama.PNG' },
             { page: 1, title: 'Web Ui/Ux', pack: 'Paket Premium', client: 'Arsenio Mahardika', date: '22 April 2026', status: 'Selesai', icon: 'fa-laptop-code', avatar: 'Athaya kaivano.PNG' },
             { page: 1, title: 'Data Entry', pack: 'Paket Premium', client: 'Kayla Anindita', date: '22 April 2026', status: 'Selesai', icon: 'fa-keyboard', avatar: 'Amanda Praama.PNG' },
-            
+
             // Halaman 2
             { page: 2, title: 'Voice Over', pack: 'Paket Premium', client: 'Devan Malik', date: '24 April 2026', status: 'Selesai', icon: 'fa-microphone', avatar: 'Dimas.PNG' },
             { page: 2, title: 'Data Entry', pack: 'Paket Premium', client: 'Mirella Octaviani', date: '25 April 2026', status: 'Dibatalkan', icon: 'fa-keyboard', avatar: 'Keisya.PNG' },
             { page: 2, title: 'Voice Over', pack: 'Paket Premium', client: 'Calista Azzura', date: '27 April 2026', status: 'Selesai', icon: 'fa-microphone', avatar: 'Celine.PNG' },
-            
+
             // Data tambahan untuk melengkapi jumlah 12
             { page: 3, title: 'Desain Logo', pack: 'Paket Premium', client: 'Rafli Mahendra', date: '29 April 2026', status: 'Selesai', icon: 'fa-pen-nib', avatar: 'Kevin.PNG' },
             { page: 3, title: 'UI Design', pack: 'Paket Basic', client: 'Andika Putra', date: '30 April 2026', status: 'Selesai', icon: 'fa-laptop-code', avatar: 'Andika Putra.PNG' },
@@ -161,11 +165,11 @@
         function filterStatus(status, element) {
             currentStatusFilter = status;
             currentPage = 1; // Reset ke halaman 1 saat filter berubah
-            
+
             // Update UI kartu aktif
             document.querySelectorAll('.status-card').forEach(card => card.classList.remove('active'));
             element.classList.add('active');
-            
+
             renderOrders();
         }
 
@@ -186,11 +190,6 @@
                 filteredOrders = orders.filter(o => o.status === currentStatusFilter);
             }
 
-            // Jika filter aktif, kita tampilkan semua yang cocok (tanpa pagination per page asli) 
-            // atau tetap gunakan pagination jika datanya banyak. 
-            // Untuk tugas ini, jika filter aktif kita tampilkan semua agar simple, 
-            // tapi jika 'all' kita gunakan pagination page 1-3.
-            
             let displayOrders = filteredOrders;
             if (currentStatusFilter === 'all') {
                 displayOrders = filteredOrders.filter(o => o.page === currentPage);
@@ -198,7 +197,7 @@
             } else {
                 paginationWrapper.style.display = 'none'; // Sembunyikan pagination saat filter aktif
             }
-            
+
             displayOrders.forEach(order => {
                 const statusClass = order.status.toLowerCase();
                 const row = `
@@ -233,7 +232,7 @@
                 const activePageEl = document.getElementById(`page-${currentPage}`);
                 if (activePageEl) activePageEl.classList.add('active');
             }
-            
+
             showingText.innerText = `Menampilkan ${displayOrders.length} dari ${filteredOrders.length} pesanan`;
         }
 
@@ -242,4 +241,5 @@
         renderOrders();
     </script>
 </body>
+
 </html>
